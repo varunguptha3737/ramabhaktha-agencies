@@ -12,12 +12,25 @@ body {
 
 /* Header Section */
 header {
-    background: #333;
+    background: rgba(51, 51, 51, 0.6); /* Transparent background (60% opacity) */
     color: #fff;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 30px;
+    position: fixed; /* Fixed position */
+    width: 90%; /* Set header width to 90% */
+    top: 30px; /* Move header down 30px from the top */
+    left: 5%; /* Center the header */
+    right: 5%; /* Ensure the header is 5% away from the right side */
+    z-index: 10; /* Ensure header stays above other elements */
+    border-radius: 10px; /* Optional: Add rounded corners to the header */
+    transition: background-color 0.5s ease, padding 0.5s ease;
+}
+
+header.scrolled {
+    background-color: rgba(51, 51, 51, 0.9); /* Darker background on scroll */
+    padding: 10px 30px; /* Reduce padding on scroll */
 }
 
 .logo h1 {
@@ -35,24 +48,66 @@ nav ul.nav-links li {
 
 nav ul.nav-links li a {
     text-decoration: none;
-    color: #fff;
+    color: red;  /* Set clickable text to red */
     font-size: 18px;
+    transition: color 0.3s, background-color 0.3s; /* Smooth transition */
+}
+
+nav ul.nav-links li a:hover {
+    color: #fff;  /* Change to white on hover */
 }
 
 /* Background Section */
 .background-image {
-    background: #ccc;
-    height: 300px;
+    background: url('https://cdn.prod.website-files.com/64380d1f2275c122f55d7d8a/646a02cce54349b00aa257d8_0_2.png') no-repeat center center/cover;
+    height: 500px; /* Increase height to 500px */
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #333;
     text-align: center;
+    position: relative; /* Allow header to overlap */
+    z-index: 1;
+    background-attachment: fixed; /* Parallax effect */
+    transition: none !important; /* Remove all transition effects */
+    transform: none !important;  /* Remove all transformations */
+    pointer-events: none; /* Disable any pointer events on the background */
 }
 
-.background-image h2 {
-    font-size: 32px;
-    font-weight: 700;
+.background-image:hover {
+    transform: none; /* Disable any transform on hover */
+}
+
+/* Ensure no child elements apply hover effects */
+.background-image * {
+    pointer-events: all; /* Re-enable pointer events for child elements */
+}
+
+.background-text {
+    background: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    padding: 30px; /* Add more padding around the text */
+    border-radius: 15px; /* Add rounded corners */
+    max-width: 800px; /* Limit the maximum width */
+    color: #333; /* Text color inside the background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add box shadow for depth */
+    animation: fadeIn 2s ease-in-out; /* Fade-in animation */
+}
+
+.background-text h1 {
+    font-size: 50px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.background-text h2 {
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.background-text p {
+    font-size: 18px;
+    max-width: 600px; /* Limit the width of the paragraph */
+    margin: 0 auto;
 }
 
 /* Product Categories Section */
@@ -73,12 +128,22 @@ nav ul.nav-links li a {
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0; /* Hide initially */
+    animation: slideUp 0.5s forwards;
 }
 
+.category:nth-child(1) { animation-delay: 0.2s; }
+.category:nth-child(2) { animation-delay: 0.4s; }
+.category:nth-child(3) { animation-delay: 0.6s; }
+.category:nth-child(4) { animation-delay: 0.8s; }
+.category:nth-child(5) { animation-delay: 1s; }
+.category:nth-child(6) { animation-delay: 1.2s; }
+
 .category:hover {
-    transform: scale(1.05);
-    border-color: #333;
+    transform: scale(1.1); /* Slightly increase size on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+    border-color: #666; /* Change border color */
 }
 
 .placeholder {
@@ -101,9 +166,111 @@ nav ul.nav-links li a {
 footer {
     background: #333;
     color: #fff;
+    padding: 30px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.footer-logo h2 {
+    font-size: 24px;
+    color: red; /* Set clickable logo text to red */
+    transition: color 0.3s;
+}
+
+.footer-logo h2:hover {
+    color: #fff; /* Change to white on hover */
+}
+
+/* Footer Links Styling */
+.footer-links {
+    flex: 1;
+}
+
+.footer-links h3 {
+    margin-bottom: 10px;
+}
+
+.footer-links ul {
+    list-style-type: none;
+    padding-left: 0; /* Remove default padding */
+}
+
+.footer-links ul li {
+    margin-bottom: 15px; /* Increase space between each link */
+}
+
+.footer-links ul li a {
+    color: red; /* Set clickable text to red */
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links ul li a:hover {
+    color: #fff; /* Change to white on hover */
+}
+
+.footer-contact h3 {
+    margin-bottom: 10px;
+    color: red; /* Set contact heading to red */
+    transition: color 0.3s;
+}
+
+.footer-contact h3:hover {
+    color: #fff; /* Change to white on hover */
+}
+
+.footer-contact address {
+    margin-bottom: 10px;
+    color: #ddd;
+}
+
+.footer-contact p {
+    color: red; /* Set contact info to red */
+    transition: color 0.3s;
+}
+
+.footer-contact p:hover {
+    color: #fff; /* Change to white on hover */
+}
+
+.footer-bottom {
     text-align: center;
-    padding: 10px;
-    position: relative;
-    bottom: 0;
-    width: 100%;
+    border-top: 1px solid #555;
+    padding-top: 15px;
+}
+
+.footer-bottom p {
+    color: red; /* Set footer text to red */
+    transition: color 0.3s;
+}
+
+.footer-bottom p:hover {
+    color: #fff; /* Change to white on hover */
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Slide-up Animation */
+@keyframes slideUp {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
