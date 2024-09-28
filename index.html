@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Minimalistic Website for Electronics Products">
     <title>Electronics Hub</title>
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -15,47 +14,85 @@
         </div>
         <nav>
             <ul class="nav-links">
-                <li><a href="#">Fans</a></li>
-                <li><a href="#">Lights</a></li>
-                <li><a href="#">AC</a></li>
-                <li><a href="#">Water Heaters</a></li>
-                <li><a href="#">Switches</a></li>
-                <li><a href="#">Home Theaters</a></li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">About Us</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Background Section -->
-    <section class="background-image">
-        <h2>Your One-Stop Shop for Electronic Essentials</h2>
+    <!-- Background Section with Parallax Effect -->
+    <section class="background-image fade-in">
+        <div class="background-text">
+            <h1>Lighting</h1>
+            <h2>Make a Brilliant Impression</h2>
+            <p>Enhancing spaces with advanced lighting and intelligent controls.</p>
+        </div>
     </section>
 
     <!-- Product Categories Section -->
-    <section class="product-categories">
-        <div class="category" id="fans">
+    <section class="product-categories" id="category-container">
+        <!-- First set of 3 categories -->
+        <div class="category fade-in" id="fans">
             <div class="placeholder">Fans</div>
         </div>
-        <div class="category" id="lights">
+        <div class="category fade-in" id="lights">
             <div class="placeholder">Lights</div>
         </div>
-        <div class="category" id="ac">
+        <div class="category fade-in" id="ac">
             <div class="placeholder">AC</div>
         </div>
-        <div class="category" id="water-heaters">
+        <!-- Second set of 3 categories -->
+        <div class="category fade-in" id="water-heaters">
             <div class="placeholder">Water Heaters</div>
         </div>
-        <div class="category" id="switches">
+        <div class="category fade-in" id="switches">
             <div class="placeholder">Switches</div>
         </div>
-        <div class="category" id="home-theaters">
+        <div class="category fade-in" id="home-theaters">
             <div class="placeholder">Home Theaters</div>
         </div>
     </section>
 
     <!-- Footer Section -->
     <footer>
-        <p>&copy; 2024 Electronics Hub. All rights reserved.</p>
+        <div class="footer-container">
+            <!-- Logo Section -->
+            <div class="footer-logo">
+                <h2>Electronics Hub</h2>
+            </div>
+
+            <!-- Quick Links Section -->
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">About Us</a></li>
+                </ul>
+            </div>
+
+            <!-- Get in Touch Section -->
+            <div class="footer-contact">
+                <h3>Get in Touch</h3>
+                <address>
+                    XYZ Street, City<br>
+                    Country, Postal Code<br>
+                    Building 5, Office 23
+                </address>
+                <p>Phone: +123 456 7890</p>
+                <p>WhatsApp: +123 456 7890</p>
+                <p>Email: info@electronicshub.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Electronics Hub. All rights reserved.</p>
+        </div>
     </footer>
+
+    <!-- Link to the external JavaScript file -->
+    <script src="script.js"></script>
 </body>
 </html>
-
